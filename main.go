@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"image/png"
 
-	"github.com/bloeys/assimp-go/asig"
+	"github.com/ARF-DEV/assimp-go/asig"
 )
 
 func main() {
@@ -54,6 +54,7 @@ func main() {
 			decodePNG(t.Data)
 		}
 	}
+	fmt.Println("awokdoawkd")
 }
 
 func decodePNG(texels []byte) {

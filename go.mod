@@ -1,4 +1,4 @@
-module github.com/bloeys/assimp-go
+module github.com/ARF-DEV/assimp-go
 
 go 1.17
 
