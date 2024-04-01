@@ -1,6 +1,8 @@
 package asig
 
-import "github.com/bloeys/gglm/gglm"
+import (
+	"github.com/go-gl/mathgl/mgl32"
+)
 
 const (
 	MaxColorSets = 8
@@ -11,16 +13,16 @@ type Mesh struct {
 
 	//Bitwise combination of PrimitiveType enum
 	PrimitiveTypes PrimitiveType
-	Vertices       []gglm.Vec3
-	Normals        []gglm.Vec3
-	Tangents       []gglm.Vec3
-	BitTangents    []gglm.Vec3
+	Vertices       []mgl32.Vec3
+	Normals        []mgl32.Vec3
+	Tangents       []mgl32.Vec3
+	BitTangents    []mgl32.Vec3
 
 	//ColorSets vertex color sets where each set is either empty or has length=len(Vertices), with max number of sets=MaxColorSets
-	ColorSets [MaxColorSets][]gglm.Vec4
+	ColorSets [MaxColorSets][]mgl32.Vec4
 
 	//TexCoords (aka UV channels) where each TexCoords[i] has NumUVComponents[i] channels, and is either empty or has length=len(Vertices), with max number of TexCoords per vertex = MaxTexCoords
-	TexCoords            [MaxTexCoords][]gglm.Vec3
+	TexCoords            [MaxTexCoords][]mgl32.Vec3
 	TexCoordChannelCount [MaxTexCoords]uint
 
 	Faces       []Face
@@ -46,19 +48,19 @@ type AnimMesh struct {
 	 *  meshes may neither add or nor remove vertex components (if
 	 *  a replacement array is NULL and the corresponding source
 	 *  array is not, the source data is taken instead)*/
-	Vertices    []gglm.Vec3
-	Normals     []gglm.Vec3
-	Tangents    []gglm.Vec3
-	BitTangents []gglm.Vec3
-	Colors      [MaxColorSets][]gglm.Vec4
-	TexCoords   [MaxTexCoords][]gglm.Vec3
+	Vertices    []mgl32.Vec3
+	Normals     []mgl32.Vec3
+	Tangents    []mgl32.Vec3
+	BitTangents []mgl32.Vec3
+	Colors      [MaxColorSets][]mgl32.Vec4
+	TexCoords   [MaxTexCoords][]mgl32.Vec3
 
 	Weight float32
 }
 
 type AABB struct {
-	Min gglm.Vec3
-	Max gglm.Vec3
+	Min mgl32.Vec3
+	Max mgl32.Vec3
 }
 
 type Bone struct {
@@ -77,7 +79,7 @@ type Bone struct {
 	 * It is sometimes called an inverse-bind matrix,
 	 * or inverse bind pose matrix.
 	 */
-	OffsetMatrix gglm.Mat4
+	OffsetMatrix mgl32.Mat4
 }
 
 type VertexWeight struct {
